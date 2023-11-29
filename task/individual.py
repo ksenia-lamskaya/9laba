@@ -76,16 +76,13 @@ if __name__ == '__main__':
                 # Разбить команду на части для выделения номера маршрута.
                 parts = input("Введите значение: ")
                 # Проверить сведения.
-                count = 0
+                flag = True
                 for i in point:
-                    for k, v in i.items():
-                        if v == int(parts):
-                            print("Начальный пункт маршрута - ", i["name"])
-                            print("Конечный пункт маршрута - ", i["name2"])
-                            count += 1
-
-                # Если счетчик равен 0, то маршруты не найдены.
-                if count == 0:
+                    if i['number'] == int(parts):
+                        print("Начальный пункт маршрута - ", i["name"])
+                        print("Конечный пункт маршрута - ", i["name2"])
+                        flag = False
+                if flag:
                     print("Маршрут с таким номером не найден")
 
             case 'help':
